@@ -1,0 +1,208 @@
+* Table of Contents :toc::noexport:
+- [[#cv-header][CV Header]]
+  - [[#photo-and-tagline][Photo and Tagline]]
+  - [[#personal-information][Personal Information]]
+- [[#cv-column-one][CV Column One]]
+  - [[#personal-statement][Personal Statement]]
+  - [[#experience][Experience]]
+  - [[#volunteering][Volunteering]]
+- [[#cv-column-two][CV Column Two]]
+  - [[#skills][Skills]]
+  - [[#certifications][Certifications]]
+  - [[#education][Education]]
+  - [[#languages][Languages]]
+  - [[#references][References]]
+- [[#backmatter][Backmatter]]
+
+* Config :noexport:
+#+begin_export latex
+\begin{document}
+#+end_export
+
+** LaTeX Config
+#+begin_src emacs-lisp :exports none :results none :eval always
+(add-to-list 'org-latex-classes
+             '("altacv" "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+
+% Change the page layout if you need to
+\\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1cm,columnsep=0.5cm}
+
+% Use roboto and lato for fonts
+\\renewcommand{\\familydefault}{\\sfdefault}
+
+% Change the colours if you want to
+\\definecolor{SlateGrey}{HTML}{2E2E2E}
+\\definecolor{LightGrey}{HTML}{666666}
+\\definecolor{DarkPastelRed}{HTML}{450808}
+\\definecolor{PastelRed}{HTML}{8F0D0D}
+\\definecolor{GoldenEarth}{HTML}{E7D192}
+\\colorlet{name}{black}
+\\colorlet{tagline}{PastelRed}
+\\colorlet{heading}{DarkPastelRed}
+\\colorlet{headingrule}{GoldenEarth}
+\\colorlet{subheading}{PastelRed}
+\\colorlet{accent}{PastelRed}
+\\colorlet{emphasis}{SlateGrey}
+\\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\\renewcommand{\\namefont}{\\Huge\\rmfamily\\bfseries}
+\\renewcommand{\\personalinfofont}{\\footnotesize}
+\\renewcommand{\\cvsectionfont}{\\LARGE\\rmfamily\\bfseries}
+\\renewcommand{\\cvsubsectionfont}{\\large\\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\\renewcommand{\\itemmarker}{{\\small\\textbullet}}
+\\renewcommand{\\ratingmarker}{\\faCircle}
+"
+
+               ("\\cvsection{%s}" . "\\cvsection*{%s}")))
+(setq org-latex-packages-alist 'nil)
+(setq org-latex-default-packages-alist
+      '(("rm" "roboto"  t)
+        ("defaultsans" "lato" t)
+        ("" "paracol" t)
+        ))
+#+end_src
+#+LATEX_CLASS: altacv
+#+LATEX_HEADER: \columnratio{0.57} % Give the left column a percentage of the page.
+#+LATEX_HEADER: \usepackage[bottom]{footmisc}
+
+** Exporter Settings
+#+AUTHOR: Jordan Hogan-Sharpe
+#+EXPORT_FILE_NAME: ./cv.pdf
+#+OPTIONS: toc:nil title:nil H:1
+
+** Macros
+#+MACRO: cvevent \cvevent{$1}{$2}{$3}{$4}
+#+MACRO: cvachievement \cvachievemwnt{$1}{$2}{$3}{$4}
+#+MACRO: cvtag \cvtag{$1}
+#+MACRO: divider \divider
+#+MACRO: par-div \par\divider
+#+MACRO: new-page \newpage
+
+* CV Header :ignore:
+** Photo and Tagline :ignore:
+#+begin_export latex
+\name{Jordan Hogan-Sharpe}
+\tagline{Philosopher}
+#+end_export
+
+** Personal Information :ignore:
+#+begin_export latex
+\personalinfo{%
+\email{jhogansharpe@gmail.com}
+\phone{+1 807 630 7108}
+\location{Thunder Bay, Ontario}
+}
+\makecvheader
+#+end_export
+
+* CV Column One :ignore:
+#+begin_export latex
+\begin{paracol}{2}
+#+end_export
+
+** Personal Statement
+#+begin_export latex
+\begin{quote}
+``I am a University student interested in Philosophy, Law, Information Technology, and Manufacturing technologies. I am entering Lakehead University this year, majoring in Philosophy.``
+\end{quote}
+#+end_export
+
+** Experience
+*** Office Assistant :ignore:
+#+begin_export latex
+\cvevent{Office Assistant (Co-op Placement)}{Weiler, Maloney, Nelson}{Nov 2019 -- Jan 2020}{Thunder Bay, Ontario}
+#+end_export
+
+- Assisting in file management and organization
+- Digitalizing documents
+- Photocopying documents
+- Vetting and digitally archiving legal library
+
+** Volunteering
+*** Busser/Dishwasher :ignore:
+#+begin_export latex
+\cvevent{Busser/Dishwasher}{The Dew Drop Inn}{Nov 2018 -- Mar 2020}{Thunder Bay, Ontario}
+#+end_export
+
+- Bussing dishes
+- Rinsing and sanitizing dishes
+- Drying and storing dishes
+- Cleaning and sanitizing station
+
+* CV Column Two :ignore:
+#+begin_export latex
+\switchcolumn
+#+end_export
+
+** Skills
+#+begin_export latex
+% System Administration
+\cvtag{Artix Linux}
+\cvtag{QEMU/KVM}
+\cvtag{Windows}
+
+\divider
+
+% Desktop Applications
+\cvtag{I3 Window Manager}
+\cvtag{LibreOffice}
+\newline
+\cvtag{Microsoft Office}
+\cvtag{Worldox}
+\cvtag{Fusion 360}
+
+
+\divider
+
+% Programming Utils
+\cvtag{Neovim}
+\cvtag{Doom Emacs}
+\cvtag{Git}
+
+\divider
+
+% Programming Languages
+\cvtag{JavaScript}
+\cvtag{Bash Script}
+\cvtag{\LaTeX}
+#+end_export
+
+** Certifications
+#+begin_export latex
+\cvtag{Ontario Driver's Licence Class G1}
+\cvtag{DELF B2}
+#+end_export
+
+** Education
+#+begin_export latex
+\cvevent{Ontario Secondary School Diploma}{Hammarskjold High School}{Sep 2016 -- Jun 2021}{Thunder Bay, Ontario}
+\divider
+\cvevent{Philosophy, Bachelor of Arts}{Lakehead University}{Sep 2021 -- ongoing}{Thunder Bay, Ontario}
+#+end_export
+
+** Languages
+#+begin_export latex
+\cvskill{English}{5}
+\divider
+\cvskill{French}{3}
+#+end_export
+
+** References
+#+begin_export latex
+%\cvref{}{}{}
+%\divider
+%\cvref{}{}{}
+%\divider
+%\cvref{}{}{}
+#+end_export
+/References are available upon request/
+
+* Backmatter :ignore:
+#+begin_export latex
+\end{paracol}
+\end{document}
+#+end_export
