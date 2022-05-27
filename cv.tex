@@ -1,19 +1,31 @@
-% Created 2021-07-15 Thu 22:48
+% Created 2022-05-27 Fri 15:06
 % Intended LaTeX compiler: pdflatex
-\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+\usepackage{paracol}
+\usepackage[rm]{roboto}
+\usepackage[defaultsans]{lato}
 
-% Change the page layout if you need to
-\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+\columnratio{0.56} % Give the left column a percentage of the page.
+
+% Page layout
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1cm,columnsep=0.5cm}
 
 % Use roboto and lato for fonts
 \renewcommand{\familydefault}{\sfdefault}
 
-% Change the colours if you want to
+% Fonts
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Colours
 \definecolor{SlateGrey}{HTML}{2E2E2E}
 \definecolor{LightGrey}{HTML}{666666}
 \definecolor{DarkPastelRed}{HTML}{450808}
 \definecolor{PastelRed}{HTML}{8F0D0D}
 \definecolor{GoldenEarth}{HTML}{E7D192}
+
 \colorlet{name}{black}
 \colorlet{tagline}{PastelRed}
 \colorlet{heading}{DarkPastelRed}
@@ -23,47 +35,50 @@
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{LightGrey}
 
-% Change some fonts, if necessary
-\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
-\renewcommand{\personalinfofont}{\footnotesize}
-\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
-\renewcommand{\cvsubsectionfont}{\large\bfseries}
-
-% Change the bullets for itemize and rating marker
-% for cvskill if you want to
+% Change the bullets for itemize and rating marker for \cvskill
 \renewcommand{\itemmarker}{{\small\textbullet}}
 \renewcommand{\ratingmarker}{\faCircle}
 
-\usepackage[rm]{roboto}
-\usepackage[defaultsans]{lato}
-\usepackage{paracol}
-\columnratio{0.57} % Give the left column a percentage of the page.
-\usepackage[bottom]{footmisc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
 \author{Jordan Hogan-Sharpe}
 \date{\today}
 \title{}
+\usepackage{biblatex}
+
 \begin{document}
 
 \name{Jordan Hogan-Sharpe}
 \tagline{Philosopher}
 
-\personalinfo{%
-\email{jhogansharpe@gmail.com}
-\phone{+1 807 630 7108}
-\location{Thunder Bay, Ontario}
+\personalinfo{
+  \email{jhogansharpe@gmail.com}
+  \phone{+1 807 630 7108}
+  \location{Thunder Bay, Ontario}
+  \driving{Ontario G1}
 }
+
 \makecvheader
 
 \begin{paracol}{2}
 
 \cvsection{Personal Statement}
-\label{sec:org8b65d56}
+\label{sec:org3fcaf91}
 \begin{quote}
-``I am a University student interested in Philosophy, Law, Information Technology, and Manufacturing technologies. I am entering Lakehead University this year, majoring in Philosophy.``
+``I am a University student interested in Philosophy, Law, Information Technologies, and consumer electronics.``
 \end{quote}
 
 \cvsection{Experience}
-\label{sec:org51e9bb0}
+\label{sec:orgca3bafe}
 \cvevent{Office Assistant (Co-op Placement)}{Weiler, Maloney, Nelson}{Nov 2019 -- Jan 2020}{Thunder Bay, Ontario}
 
 \begin{itemize}
@@ -74,7 +89,7 @@
 \end{itemize}
 
 \cvsection{Volunteering}
-\label{sec:org28b6dff}
+\label{sec:orgc8faffa}
 \cvevent{Busser/Dishwasher}{The Dew Drop Inn}{Nov 2018 -- Mar 2020}{Thunder Bay, Ontario}
 
 \begin{itemize}
@@ -83,25 +98,22 @@
 \item Drying and storing dishes
 \item Cleaning and sanitizing station
 \end{itemize}
+
 \switchcolumn
 
 \cvsection{Skills}
-\label{sec:org52035fb}
-% System Administration
-\cvtag{Artix Linux}
+\label{sec:orgb3710b2}
+% Systems
+\cvtag{Fedora Linux}
+\cvtag{Arch Linux}
 \cvtag{QEMU/KVM}
-\cvtag{Windows}
 
 \divider
 
 % Desktop Applications
-\cvtag{I3 Window Manager}
 \cvtag{LibreOffice}
-\newline
 \cvtag{Microsoft Office}
 \cvtag{Worldox}
-\cvtag{Fusion 360}
-
 
 \divider
 
@@ -109,39 +121,43 @@
 \cvtag{Neovim}
 \cvtag{Doom Emacs}
 \cvtag{Git}
+\cvtag{Node}
 
 \divider
 
 % Programming Languages
 \cvtag{JavaScript}
-\cvtag{Bash Script}
+\cvtag{TypeScript}
+\cvtag{Shell Script}
+\newline
+\cvtag{Emacs Lisp}
 \cvtag{\LaTeX}
 
 \cvsection{Certifications}
-\label{sec:org872a3fd}
-\cvtag{Ontario Driver's Licence Class G1}
+\label{sec:org7547973}
 \cvtag{DELF B2}
 
 \cvsection{Education}
-\label{sec:org7c81ce3}
+\label{sec:orgf09d1b9}
 \cvevent{Ontario Secondary School Diploma}{Hammarskjold High School}{Sep 2016 -- Jun 2021}{Thunder Bay, Ontario}
 \divider
-\cvevent{Philosophy, Bachelor of Arts}{Lakehead University}{Sep 2021 -- ongoing}{Thunder Bay, Ontario}
+\cvevent{Philosophy, Bachelor of Arts With Honours}{Lakehead University}{Sep 2021 -- ongoing}{Thunder Bay, Ontario}
 
 \cvsection{Languages}
-\label{sec:org9a9fff1}
+\label{sec:org614e7e1}
 \cvskill{English}{5}
 \divider
 \cvskill{French}{3}
 
 \cvsection{References}
-\label{sec:org0259527}
+\label{sec:org7c147c7}
 %\cvref{}{}{}
 %\divider
 %\cvref{}{}{}
 %\divider
 %\cvref{}{}{}
+
 \emph{References are available upon request}
+
 \end{paracol}
-\end{document}
 \end{document}
