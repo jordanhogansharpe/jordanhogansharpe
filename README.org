@@ -69,19 +69,19 @@ Eval this if you want to export:
 \makecvheader
 #+end_src
 
+** Personal Statement :ignore:
+#+begin_src latex
+\begin{quote}
+``I think software engineering and chemistry is real-life sorcery; I choose the former.``
+\end{quote}
+#+end_src
+
 * Paracol :ignore:
 #+begin_src latex
 \begin{paracol}{2}
 #+end_src
 
 ** CV Column One :ignore:
-*** Personal Statement
-#+begin_src latex
-\begin{quote}
-``I am a University student interested in Philosophy, Law, Information Technologies, and consumer electronics.``
-\end{quote}
-#+end_src
-
 *** Experience
 **** Office Assistant :ignore:
 #+begin_src latex
@@ -114,7 +114,7 @@ Eval this if you want to export:
 % Systems
 \cvtag{Fedora Linux}
 \cvtag{Arch Linux}
-\cvtag{QEMU/KVM}
+\cvtag{NixOS}
 
 \divider
 
@@ -126,10 +126,9 @@ Eval this if you want to export:
 \divider
 
 % Programming Utils
-\cvtag{Neovim}
 \cvtag{Doom Emacs}
 \cvtag{Git}
-\cvtag{Node}
+\cvtag{NodeJS}
 
 \divider
 
@@ -140,6 +139,7 @@ Eval this if you want to export:
 \newline
 \cvtag{Emacs Lisp}
 \cvtag{\LaTeX}
+\cvtag{Nix}
 #+end_src
 
 *** Certifications
